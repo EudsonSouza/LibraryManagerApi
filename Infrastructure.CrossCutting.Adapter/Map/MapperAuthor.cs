@@ -1,9 +1,10 @@
 ﻿using Application.DTO;
 using Domain.Models;
+using Infrastructure.CrossCutting.Adapter.Interfaces;
 
 namespace Infrastructure.CrossCutting.Adapter.Map
 {
-    public class MapperAuthor
+    public class MapperAuthor : IMapperAuthor
     {
 
         List<AuthorDTO> authorDTOs = new List<AuthorDTO>();

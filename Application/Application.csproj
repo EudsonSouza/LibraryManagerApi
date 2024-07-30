@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application.DTO\Application.DTO.csproj" />
     <ProjectReference Include="..\Domain.Services\Domain.Services.csproj" />
+    <ProjectReference Include="..\Infrastructure.CrossCutting.Adapter\Infrastructure.CrossCutting.Adapter.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,10 +5,10 @@ namespace Infrastructure.CrossCutting.Adapter.Interfaces
 {
     public interface IMapperAuthor
     {
-        Author MapperToEntity(AuthorDTO AuthorDTO);
+        Author MapToEntity(AuthorDTO AuthorDTO);
 
-        IEnumerable<AuthorDTO> MapperListAuthors(IEnumerable<Author> authors);
+        IEnumerable<AuthorDTO> MapListAuthorsToDTO(IEnumerable<Author> authors);
 
-        AuthorDTO MapperToDTO(Author Author);
+        AuthorDTO MapToDTO(Author Author);
     }
 }

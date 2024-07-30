@@ -1,6 +1,7 @@
 ﻿using Application.DTO;
 using Application.Interfaces;
 using Domain.Core.Interfaces.Services;
+using Infrastructure.CrossCutting.Adapter.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,41 +15,41 @@ namespace Application.Services
         private readonly IServiceAuthor _serviceAuthor;
         private readonly IMapperAuthor _mapperAuthor;
      
-        public ApplicationServiceAuthor(IServiceAuthor ServiceAuthor,
-                                        IMapperAuthor MapperAuthor)
+        public ApplicationServiceAuthor(IServiceAuthor serviceAuthor,
+                                        IMapperAuthor mapperAuthor)
         {
-            _serviceAuthor = ServiceAuthor;
-            _mapperAuthor = MapperAuthor;
+            _serviceAuthor = serviceAuthor;
+            _mapperAuthor = mapperAuthor;
         }
 
 
         public void Add(AuthorDTO obj)
         {
-            var objAuthor = _mapperAuthor.MapperToEntity(obj);
+            var objAuthor = _mapperAuthor.MapToEntity(obj);
             _serviceAuthor.Add(objAuthor);
         }
 
         public IEnumerable<AuthorDTO> GetAll()
         {
             var objProdutos = _serviceAuthor.GetAll();
-            return _mapperAuthor.MapperListAuthors(objProdutos);
+            return _mapperAuthor.MapListAuthorsToDTO(objProdutos);
         }
 
         public AuthorDTO GetById(int id)
         {
             var objAuthor = _serviceAuthor.GetById(id);
-            return _mapperAuthor.MapperToDTO(objAuthor);
+            return _mapperAuthor.MapToDTO(objAuthor);
         }
 
         public void Remove(AuthorDTO obj)
         {
-            var objAuthor = _mapperAuthor.MapperToEntity(obj);
+            var objAuthor = _mapperAuthor.MapToEntity(obj);
             _serviceAuthor.Remove(objAuthor);
         }
 
         public void Update(AuthorDTO obj)
         {
-            var objAuthor = _mapperAuthor.MapperToEntity(obj);
+            var objAuthor = _mapperAuthor.MapToEntity(obj);
             _serviceAuthor.Update(objAuthor);
         }
         public void Dispose()
