@@ -1,6 +1,14 @@
+using Infrastructure.CrossCutting.IoC;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
+var connection = configuration.GetConnectionString("SqlServer");
+builder.Services.AddDbContext<SqlContext>(options => options.UseSqlServer(connection));
+ConfigurationIoC.ConfigureDependencyInjection(builder.Services);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
