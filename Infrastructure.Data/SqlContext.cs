@@ -15,6 +15,12 @@ namespace Infrastructure.Data
 
         public DbSet<Author> Author { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Author>()
+                .HasKey(a => a.Id);
+        }
+
         public override int SaveChanges()
         {
             var entries = ChangeTracker.Entries()
