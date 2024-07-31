@@ -9,13 +9,13 @@ namespace Application.Interfaces
 {
     public interface IApplicationServiceAuthor
     {
-        void Add(AuthorDTO  obj);
+        AuthorDTO Add(AuthorDTO  obj);
 
         AuthorDTO GetById(int id);
 
         IEnumerable<AuthorDTO> GetAll();
 
-        void Update(AuthorDTO obj);
+        AuthorDTO Update(AuthorDTO obj);
 
         void Remove(AuthorDTO obj);
 

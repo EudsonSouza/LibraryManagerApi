@@ -23,10 +23,11 @@ namespace Application.Services
         }
 
 
-        public void Add(AuthorDTO obj)
+        public AuthorDTO Add(AuthorDTO obj)
         {
             var objAuthor = _mapperAuthor.MapToEntity(obj);
-            _serviceAuthor.Add(objAuthor);
+            var authorEntity = _serviceAuthor.Add(objAuthor);
+            return _mapperAuthor.MapToDTO(authorEntity);
         }
 
         public IEnumerable<AuthorDTO> GetAll()
@@ -47,10 +48,11 @@ namespace Application.Services
             _serviceAuthor.Remove(objAuthor);
         }
 
-        public void Update(AuthorDTO obj)
+        public AuthorDTO Update(AuthorDTO obj)
         {
             var objAuthor = _mapperAuthor.MapToEntity(obj);
-            _serviceAuthor.Update(objAuthor);
+            var authorEntity = _serviceAuthor.Update(objAuthor);
+            return _mapperAuthor.MapToDTO(authorEntity);
         }
         public void Dispose()
         {

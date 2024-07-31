@@ -12,9 +12,9 @@ namespace Domain.Services
         {
             _repository = Repository;
         }
-        public virtual void Add(TEntity obj)
+        public virtual TEntity Add(TEntity obj)
         {
-            _repository.Add(obj);
+            return _repository.Add(obj);
         }
         public virtual TEntity GetById(int id)
         {
@@ -24,9 +24,9 @@ namespace Domain.Services
         {
             return _repository.GetAll();
         }
-        public virtual void Update(TEntity obj)
+        public virtual TEntity Update(TEntity obj)
         {
-            _repository.Update(obj);
+            return _repository.Update(obj);
         }
         public virtual void Remove(TEntity obj)
         {

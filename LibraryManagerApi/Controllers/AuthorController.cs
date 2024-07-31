@@ -32,23 +32,23 @@ namespace LibraryManagerApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] AuthorDTO authorDTO)
+        public ActionResult<AuthorDTO> Post([FromBody] AuthorDTO authorDTO)
         {
             if (authorDTO == null)
                 return NotFound();
 
-            _applicationServiceAuthor.Add(authorDTO);
-            return Ok("Author created successfully!");
+            var createdAuthor = _applicationServiceAuthor.Add(authorDTO);
+            return Created(nameof(Get), createdAuthor);
         }
 
         [HttpPut]
-        public ActionResult Put([FromBody] AuthorDTO authorDTO)
+        public ActionResult<AuthorDTO> Put([FromBody] AuthorDTO authorDTO)
         {
             if (authorDTO == null)
                 return NotFound();
 
-            _applicationServiceAuthor.Update(authorDTO);
-            return Ok("Author updated successfully!");
+            var updatedAuthorDTO = _applicationServiceAuthor.Update(authorDTO);
+            return Ok(updatedAuthorDTO);
         }
 
         [HttpDelete()]
