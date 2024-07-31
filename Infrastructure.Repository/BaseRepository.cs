@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository
 {
-        public abstract class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
+        public abstract class BaseRepository<TEntity> : IDisposable, IBaseRepository<TEntity> where TEntity : class
         {
             private readonly SqlContext _context;
 
-            public RepositoryBase(SqlContext Context)
+            public BaseRepository(SqlContext Context)
             {
                 _context = Context;
             }

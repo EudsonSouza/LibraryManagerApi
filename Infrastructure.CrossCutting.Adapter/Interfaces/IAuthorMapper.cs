@@ -3,7 +3,7 @@ using Domain.Models;
 
 namespace Infrastructure.CrossCutting.Adapter.Interfaces
 {
-    public interface IMapperAuthor
+    public interface IAuthorMapper
     {
         Author MapToEntity(AuthorDTO AuthorDTO);
 

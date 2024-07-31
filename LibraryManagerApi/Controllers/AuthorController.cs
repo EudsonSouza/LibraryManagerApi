@@ -9,10 +9,10 @@ namespace LibraryManagerApi.Controllers
     public class AuthorController : ControllerBase
     {
         private readonly ILogger<AuthorController> _logger;
-        private readonly IApplicationServiceAuthor _applicationServiceAuthor;
+        private readonly IAuthorApplicationService _applicationServiceAuthor;
 
         public AuthorController(ILogger<AuthorController> logger,
-                                IApplicationServiceAuthor applicationServiceAuthor)
+                                IAuthorApplicationService applicationServiceAuthor)
         {
             _logger = logger;
             _applicationServiceAuthor = applicationServiceAuthor;

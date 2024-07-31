@@ -15,12 +15,12 @@ namespace Infrastructure.CrossCutting.IoC
     {
         public static void ConfigureDependencyInjection(IServiceCollection serviceCollection) {
 
-            serviceCollection.AddScoped<IRepositoryAuthor, RepositoryAuthor>();
-            serviceCollection.AddScoped<IApplicationServiceAuthor, ApplicationServiceAuthor>();
-            serviceCollection.AddScoped<IServiceAuthor, ServiceAuthor>();
+            serviceCollection.AddScoped<IAuthorRepository, AuthorRepository>();
+            serviceCollection.AddScoped<IAuthorApplicationService, AuthorApplicationService>();
+            serviceCollection.AddScoped<IAuthorService, AuthorService>();
 
 
-            serviceCollection.AddSingleton<IMapperAuthor, MapperAuthor>();
+            serviceCollection.AddSingleton<IAuthorMapper, AuthorMapper>();
 
 
         }

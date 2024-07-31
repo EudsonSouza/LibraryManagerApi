@@ -4,7 +4,7 @@ using Infrastructure.CrossCutting.Adapter.Interfaces;
 
 namespace Infrastructure.CrossCutting.Adapter.Map
 {
-    public class MapperAuthor : IMapperAuthor
+    public class AuthorMapper : IAuthorMapper
     {
 
         List<AuthorDTO> authorDTOs = new List<AuthorDTO>();

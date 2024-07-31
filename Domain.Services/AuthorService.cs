@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Services
 {
-    public class ServiceAuthor : ServiceBase<Author>, IServiceAuthor
+    public class AuthorService : BaseService<Author>, IAuthorService
     {
-        public readonly IRepositoryAuthor _repositoryAuthor;
+        public readonly IAuthorRepository _authorRepository;
 
-        public ServiceAuthor(IRepositoryAuthor repositoryAuthor)
-            : base(repositoryAuthor)
+        public AuthorService(IAuthorRepository authorRepository)
+            : base(authorRepository)
         {
-            _repositoryAuthor = repositoryAuthor;
+            _authorRepository = authorRepository;
         }
     }
 }

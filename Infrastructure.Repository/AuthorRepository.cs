@@ -5,11 +5,11 @@ using Infrastructure.Data;
 namespace Infrastructure.Repository
 {
 
-    public class RepositoryAuthor : RepositoryBase<Author>, IRepositoryAuthor
+    public class AuthorRepository : BaseRepository<Author>, IAuthorRepository
     {
 
         private readonly SqlContext _context;
-        public RepositoryAuthor(SqlContext Context)
+        public AuthorRepository(SqlContext Context)
             : base(Context)
         {
             _context = Context;

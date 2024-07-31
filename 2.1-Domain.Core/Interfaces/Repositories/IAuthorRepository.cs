@@ -7,7 +7,7 @@ using Domain.Models;
 
 namespace Domain.Core.Interfaces.Repositories
 {
-    public interface IRepositoryAuthor : IRepositoryBase<Author>
+    public interface IAuthorRepository : IBaseRepository<Author>
     {
     }
 }

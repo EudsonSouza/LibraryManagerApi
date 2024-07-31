@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Core.Interfaces.Repositories
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IBaseRepository<TEntity> where TEntity : class
     {
         TEntity Add(TEntity obj);
 

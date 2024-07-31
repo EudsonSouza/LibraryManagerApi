@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class ApplicationServiceAuthor : IApplicationServiceAuthor
+    public class AuthorApplicationService : IAuthorApplicationService
 {
-        private readonly IServiceAuthor _serviceAuthor;
-        private readonly IMapperAuthor _mapperAuthor;
+        private readonly IAuthorService _serviceAuthor;
+        private readonly IAuthorMapper _mapperAuthor;
      
-        public ApplicationServiceAuthor(IServiceAuthor serviceAuthor,
-                                        IMapperAuthor mapperAuthor)
+        public AuthorApplicationService(IAuthorService serviceAuthor,
+                                        IAuthorMapper mapperAuthor)
         {
             _serviceAuthor = serviceAuthor;
             _mapperAuthor = mapperAuthor;

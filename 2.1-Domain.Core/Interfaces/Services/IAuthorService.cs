@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Core.Interfaces.Services
 {
-    public interface IServiceAuthor : IServiceBase<Author>
+    public interface IAuthorService : IServiceBase<Author>
     {
     }
 }

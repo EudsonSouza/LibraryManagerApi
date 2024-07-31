@@ -4,11 +4,11 @@ using Domain.Core.Interfaces.Repositories;
 namespace Domain.Services
 {
 
-    public abstract class ServiceBase<TEntity> : IDisposable, IServiceBase<TEntity> where TEntity : class
+    public abstract class BaseService<TEntity> : IDisposable, IServiceBase<TEntity> where TEntity : class
     {
-        private readonly IRepositoryBase<TEntity> _repository;
+        private readonly IBaseRepository<TEntity> _repository;
 
-        public ServiceBase(IRepositoryBase<TEntity> Repository)
+        public BaseService(IBaseRepository<TEntity> Repository)
         {
             _repository = Repository;
         }

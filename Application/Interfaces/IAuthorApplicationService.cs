@@ -7,7 +7,7 @@ using Application.DTO;
 
 namespace Application.Interfaces
 {
-    public interface IApplicationServiceAuthor
+    public interface IAuthorApplicationService
     {
         AuthorDTO Add(AuthorDTO  obj);
 
