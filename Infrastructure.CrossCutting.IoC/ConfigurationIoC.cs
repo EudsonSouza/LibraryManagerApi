@@ -20,7 +20,7 @@ namespace Infrastructure.CrossCutting.IoC
             serviceCollection.AddScoped<IAuthorService, AuthorService>();
 
 
-            serviceCollection.AddSingleton<IAuthorMapper, AuthorMapper>();
+            serviceCollection.AddScoped<IAuthorMapper, AuthorMapper>();
 
 
         }
