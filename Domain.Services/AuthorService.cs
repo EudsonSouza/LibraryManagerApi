@@ -18,5 +18,16 @@ namespace Domain.Services
         {
             _authorRepository = authorRepository;
         }
+
+        public override Author Add(Author author)
+        {
+            if (_authorRepository.ExistsByName(author.Name))
+            {
+                throw new InvalidOperationException("An author with the same name already exists.");
+            }
+
+            return base.Add(author);
+        }
+
     }
 }

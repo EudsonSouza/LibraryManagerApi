@@ -35,7 +35,7 @@ public class AuthorsControllerTests : IClassFixture<CustomWebApplicationFactory<
         var responseString = await response.Content.ReadAsStringAsync();
         var authors = JsonConvert.DeserializeObject<List<Author>>(responseString);
         Assert.NotNull(authors);
-        Assert.NotEmpty(authors); // Adicionado para garantir que a lista não está vazia
+        Assert.NotEmpty(authors); 
     }
 
     [Fact]
@@ -49,7 +49,6 @@ public class AuthorsControllerTests : IClassFixture<CustomWebApplicationFactory<
         var response = await _client.PostAsync("author", content);
 
         // Assert
-        
         response.EnsureSuccessStatusCode();
         Assert.Equal(System.Net.HttpStatusCode.Created, response.StatusCode);
 
@@ -58,6 +57,21 @@ public class AuthorsControllerTests : IClassFixture<CustomWebApplicationFactory<
         var createdAuthor = JsonConvert.DeserializeObject<Author>(responseString);
         Assert.NotNull(createdAuthor);
         Assert.Equal("New Author", createdAuthor.Name);
+    }
+
+    [Fact]
+    public async Task CreateAuthor_DuplicateName_ReturnsConflictResponse()
+    {
+        // Arrange
+        var author = new Author { Name = "Duplicate Author" };
+        await EnsureAuthorCreatedAsync(author);
+        var duplicateAuthorContent = new StringContent(JsonConvert.SerializeObject(author), Encoding.UTF8, "application/json");
+
+        // Act
+        var response = await _client.PostAsync("author", duplicateAuthorContent);
+
+        // Assert
+        Assert.Equal(System.Net.HttpStatusCode.Conflict, response.StatusCode);
     }
 
     private async Task EnsureAuthorCreatedAsync(Author author)

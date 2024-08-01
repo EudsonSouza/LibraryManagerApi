@@ -1,6 +1,7 @@
 ﻿using Domain.Core.Interfaces.Repositories;
 using Domain.Models;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace Infrastructure.Repository
 {
@@ -13,6 +14,11 @@ namespace Infrastructure.Repository
             : base(Context)
         {
             _context = Context;
+        }
+
+        public bool ExistsByName(string name)
+        {
+            return _context.Set<Author>().Any(a => a.Name == name);
         }
 
     }

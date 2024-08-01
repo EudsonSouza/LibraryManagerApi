@@ -34,11 +34,19 @@ namespace LibraryManagerApi.Controllers
         [HttpPost]
         public ActionResult<AuthorDTO> Post([FromBody] AuthorDTO authorDTO)
         {
-            if (authorDTO == null)
-                return NotFound();
+            try
+            {
+                if (authorDTO == null)
+                    return NotFound();
 
-            var createdAuthor = _applicationServiceAuthor.Add(authorDTO);
-            return Created(nameof(Get), createdAuthor);
+                var createdAuthor = _applicationServiceAuthor.Add(authorDTO);
+                return Created(nameof(Get), createdAuthor);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict();
+            }
+
         }
 
         [HttpPut]

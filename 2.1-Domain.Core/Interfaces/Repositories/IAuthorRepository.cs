@@ -9,5 +9,6 @@ namespace Domain.Core.Interfaces.Repositories
 {
     public interface IAuthorRepository : IBaseRepository<Author>
     {
+        bool ExistsByName(string name);
     }
 }
