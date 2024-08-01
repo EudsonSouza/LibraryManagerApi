@@ -74,6 +74,34 @@ public class AuthorsControllerTests : IClassFixture<CustomWebApplicationFactory<
         Assert.Equal(System.Net.HttpStatusCode.Conflict, response.StatusCode);
     }
 
+    [Fact]
+    public async Task CreateAuthor_NullAuthor_ReturnsBadRequest()
+    {
+        // Arrange
+        Author author = null;
+        var content = new StringContent(JsonConvert.SerializeObject(author), Encoding.UTF8, "application/json");
+
+        // Act
+        var response = await _client.PostAsync("author", content);
+
+        // Assert
+        Assert.Equal(System.Net.HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task UpdateAuthor_NullAuthor_ReturnsBadRequest()
+    {
+        // Arrange
+        Author author = null;
+        var content = new StringContent(JsonConvert.SerializeObject(author), Encoding.UTF8, "application/json");
+
+        // Act
+        var response = await _client.PutAsync("author", content);
+
+        // Assert
+        Assert.Equal(System.Net.HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
     private async Task EnsureAuthorCreatedAsync(Author author)
     {
         var content = new StringContent(JsonConvert.SerializeObject(author), Encoding.UTF8, "application/json");

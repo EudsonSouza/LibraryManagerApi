@@ -37,14 +37,14 @@ namespace LibraryManagerApi.Controllers
             try
             {
                 if (authorDTO == null)
-                    return NotFound();
+                    return BadRequest();
 
                 var createdAuthor = _applicationServiceAuthor.Add(authorDTO);
                 return Created(nameof(Get), createdAuthor);
             }
             catch (InvalidOperationException ex)
             {
-                return Conflict();
+                return Conflict(ex.Message);
             }
 
         }
@@ -53,7 +53,7 @@ namespace LibraryManagerApi.Controllers
         public ActionResult<AuthorDTO> Put([FromBody] AuthorDTO authorDTO)
         {
             if (authorDTO == null)
-                return NotFound();
+                return BadRequest();
 
             var updatedAuthorDTO = _applicationServiceAuthor.Update(authorDTO);
             return Ok(updatedAuthorDTO);
