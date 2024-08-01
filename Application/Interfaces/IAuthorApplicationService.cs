@@ -9,7 +9,7 @@ namespace Application.Interfaces
 {
     public interface IAuthorApplicationService
     {
-        AuthorDTO Add(AuthorDTO  obj);
+        AuthorDTO Add(CreateAuthorDTO  obj);
 
         AuthorDTO GetById(int id);
 

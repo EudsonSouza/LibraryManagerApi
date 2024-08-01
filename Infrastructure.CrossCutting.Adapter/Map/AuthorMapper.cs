@@ -20,6 +20,16 @@ namespace Infrastructure.CrossCutting.Adapter.Map
             return author;
         }
 
+        public Author MapToEntity(CreateAuthorDTO authorDTO)
+        {
+            Author author = new Author
+            {
+                Name = authorDTO.Name
+            };
+
+            return author;
+        }
+
         public AuthorDTO MapToDTO(Author Author)
         {
             AuthorDTO authorDTO = new AuthorDTO

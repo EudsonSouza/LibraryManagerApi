@@ -32,7 +32,7 @@ namespace LibraryManagerApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<AuthorDTO> Post([FromBody] AuthorDTO authorDTO)
+        public ActionResult<AuthorDTO> Post([FromBody] CreateAuthorDTO authorDTO)
         {
             try
             {
@@ -59,13 +59,14 @@ namespace LibraryManagerApi.Controllers
             return Ok(updatedAuthorDTO);
         }
 
-        [HttpDelete()]
-        public ActionResult Delete([FromBody] AuthorDTO authorDTO)
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
         {
-            if (authorDTO == null)
-                return NotFound();
+            var author = _applicationServiceAuthor.GetById(id);
+            if (author == null)
+                return BadRequest();
 
-            _applicationServiceAuthor.Remove(authorDTO);
+            _applicationServiceAuthor.Remove(author);
             return Ok("Author deleted successfully!");
         }
     }

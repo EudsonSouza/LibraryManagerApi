@@ -7,6 +7,8 @@ namespace Infrastructure.CrossCutting.Adapter.Interfaces
     {
         Author MapToEntity(AuthorDTO AuthorDTO);
 
+        Author MapToEntity(CreateAuthorDTO AuthorDTO);
+
         IEnumerable<AuthorDTO> MapListAuthorsToDTO(IEnumerable<Author> authors);
 
         AuthorDTO MapToDTO(Author Author);

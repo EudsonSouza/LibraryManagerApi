@@ -23,7 +23,7 @@ namespace Application.Services
         }
 
 
-        public AuthorDTO Add(AuthorDTO obj)
+        public AuthorDTO Add(CreateAuthorDTO obj)
         {
             var objAuthor = _mapperAuthor.MapToEntity(obj);
             var authorEntity = _serviceAuthor.Add(objAuthor);
