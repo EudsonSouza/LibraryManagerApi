@@ -10,5 +10,7 @@ namespace Domain.Core.Interfaces.Repositories
     public interface IAuthorRepository : IBaseRepository<Author>
     {
         bool ExistsByName(string name);
+
+        bool ExistsWithDifferentId(int? id, string name);
     }
 }

@@ -21,6 +21,11 @@ namespace Infrastructure.Repository
             return _context.Set<Author>().Any(a => a.Name == name);
         }
 
+        public bool ExistsWithDifferentId(int? id, string name)
+        {
+            return _context.Set<Author>().Any(a => a.Name == name && a.Id != id);
+        }
+
     }
     
 }

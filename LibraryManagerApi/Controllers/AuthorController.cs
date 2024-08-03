@@ -52,11 +52,20 @@ namespace LibraryManagerApi.Controllers
         [HttpPut]
         public ActionResult<AuthorDTO> Put([FromBody] AuthorDTO authorDTO)
         {
-            if (authorDTO == null)
-                return BadRequest();
+            try
+            {
 
-            var updatedAuthorDTO = _applicationServiceAuthor.Update(authorDTO);
-            return Ok(updatedAuthorDTO);
+                if (authorDTO == null)
+                    return BadRequest();
+
+                var updatedAuthorDTO = _applicationServiceAuthor.Update(authorDTO);
+                return Ok(updatedAuthorDTO);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+
         }
 
         [HttpDelete("{id}")]

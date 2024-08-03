@@ -23,11 +23,22 @@ namespace Domain.Services
         {
             if (_authorRepository.ExistsByName(author.Name))
             {
-                throw new InvalidOperationException("An author with the same name already exists.");
+                ThrowNameAlreadyExistsException();
             }
-
             return base.Add(author);
         }
+        public override Author Update(Author author)
+        {
+            if(_authorRepository.ExistsWithDifferentId(author.Id, author.Name))
+            {
+                ThrowNameAlreadyExistsException();
+            }
+            return base.Update(author);
+        }
 
+        private void ThrowNameAlreadyExistsException()
+        {
+            throw new InvalidOperationException("An author with the same name already exists.");
+        }
     }
 }
