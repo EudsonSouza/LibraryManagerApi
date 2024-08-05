@@ -1,13 +1,6 @@
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Xunit;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using Infrastructure.Data;
 using Domain.Models;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 public class AuthorsControllerTests : IClassFixture<CustomWebApplicationFactory<Program>>
 {

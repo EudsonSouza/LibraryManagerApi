@@ -1,11 +1,6 @@
 ﻿using Domain.Core.Interfaces.Repositories;
 using Domain.Core.Interfaces.Services;
 using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Services
 {
@@ -29,7 +24,7 @@ namespace Domain.Services
         }
         public override Author Update(Author author)
         {
-            if(_authorRepository.ExistsWithDifferentId(author.Id, author.Name))
+            if (_authorRepository.ExistsWithDifferentId(author.Id, author.Name))
             {
                 ThrowNameAlreadyExistsException();
             }

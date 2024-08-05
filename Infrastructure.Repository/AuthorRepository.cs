@@ -1,7 +1,6 @@
 ﻿using Domain.Core.Interfaces.Repositories;
 using Domain.Models;
 using Infrastructure.Data;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace Infrastructure.Repository
 {

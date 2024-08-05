@@ -2,11 +2,6 @@
 using Application.Interfaces;
 using Domain.Core.Interfaces.Services;
 using Infrastructure.CrossCutting.Adapter.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
