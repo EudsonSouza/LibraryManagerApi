@@ -1,7 +1,5 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
 
 namespace Infrastructure.Data
 {
@@ -14,6 +12,7 @@ namespace Infrastructure.Data
         public SqlContext(DbContextOptions<SqlContext> options) : base(options) { }
 
         public DbSet<Author> Author { get; set; }
+        public DbSet<BookGenre> BookGenres { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -4,36 +4,50 @@ using Domain.Models;
 
 namespace Domain.Services
 {
-    public class AuthorService : BaseService<Author>, IAuthorService
+    public class BookGenreService : BaseService<BookGenre>, IBookGenreService
     {
-        public readonly IAuthorRepository _authorRepository;
+        public readonly IBookGenreRepository _bookGenreRepository;
 
-        public AuthorService(IAuthorRepository authorRepository)
-            : base(authorRepository)
+        public BookGenreService(IBookGenreRepository bookGenreRepository)
+            : base(bookGenreRepository)
         {
-            _authorRepository = authorRepository;
+            _bookGenreRepository = bookGenreRepository;
         }
 
-        public override Author Add(Author author)
+        public override BookGenre Add(BookGenre bookGenre)
         {
-            if (_authorRepository.ExistsByName(author.Name))
+            if (_bookGenreRepository.ExistsByName(bookGenre.Name))
             {
                 ThrowNameAlreadyExistsException();
             }
-            return base.Add(author);
+            return base.Add(bookGenre);
         }
-        public override Author Update(Author author)
+        public override BookGenre Update(BookGenre bookGenre)
         {
-            if(_authorRepository.ExistsWithDifferentId(author.Id, author.Name))
+            if (_bookGenreRepository.ExistsWithDifferentId(bookGenre.Id, bookGenre.Name))
             {
                 ThrowNameAlreadyExistsException();
             }
-            return base.Update(author);
+            return base.Update(bookGenre);
         }
 
         private void ThrowNameAlreadyExistsException()
         {
-            throw new InvalidOperationException("An author with the same name already exists.");
+            throw new InvalidOperationException("A book genre with the same name already exists.");
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
