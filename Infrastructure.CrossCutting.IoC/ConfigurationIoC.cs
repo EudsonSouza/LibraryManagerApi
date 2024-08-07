@@ -27,6 +27,12 @@ namespace Infrastructure.CrossCutting.IoC
             serviceCollection.AddScoped<IBookGenreMapper, BookGenreMapper>();
 
 
+            serviceCollection.AddScoped<IBookRepository, BookRepository>();
+            serviceCollection.AddScoped<IBookApplicationService, BookApplicationService>();
+            serviceCollection.AddScoped<IBookService, BookService>();
+            serviceCollection.AddScoped<IBookMapper, BookMapper>();
+
+
         }
     }
 }
